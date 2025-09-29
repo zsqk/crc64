@@ -1,0 +1,35 @@
+# Node.js
+node_modules/
+
+# Build outputs
+build/
+build/mid/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Temporary files
+*.tmp
+*.temp
+
+# Local env files
+.env
+.env.*
+
+# Coverage
+coverage/
+
+# Optional: lockfiles (uncomment if you prefer to ignore)
+# package-lock.json
+# yarn.lock
