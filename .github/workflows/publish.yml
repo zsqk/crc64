@@ -1,0 +1,48 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# This workflow will install Deno then run Deno lint and test.
+# For more information see: https://github.com/denoland/setup-deno
+
+name: publish
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'deno.json'
+
+jobs:
+  check-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 需要写权限来创建 tag
+      id-token: write
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Get version from deno.json
+        id: version
+        run: |
+          VERSION=$(jq -r .version deno.json)
+          echo "version=v${VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Create Tag
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git tag ${{ steps.version.outputs.version }}
+          git push origin ${{ steps.version.outputs.version }}
+
+      - name: Run publish
+        run: deno publish

@@ -1,0 +1,25 @@
+{
+  "name": "@zsqk/crc64",
+  "version": "0.1.0",
+  "license": "MIT",
+  "exports": "./build/release.js",
+  "tasks": {
+    "asbuild:debug": "asc assembly/crc64.ts --target debug",
+    "asbuild:release": "asc assembly/crc64.ts --target release",
+    "asbuild": "deno task asbuild:debug && deno task asbuild:release",
+    "test": "deno task asbuild && deno test -A",
+    "prepublish": "deno task asbuild"
+  },
+  "publish": {
+    "include": [
+      "build/",
+      "README.md",
+      "LICENSE",
+      "deno.json"
+    ]
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@^1.0.14",
+    "assemblyscript": "npm:assemblyscript@^0.28.8"
+  }
+}
