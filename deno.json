@@ -7,11 +7,11 @@
     "asbuild:debug": "asc assembly/crc64.ts --target debug",
     "asbuild:release": "asc assembly/crc64.ts --target release",
     "asbuild": "deno task asbuild:debug && deno task asbuild:release",
+    "prepublish": "deno task asbuild:release && deno run --allow-read --allow-write tools/append-type.ts",
     "test": "deno task asbuild && deno test -A"
   },
   "exclude": [
-    "assembly/",
-    "build/"
+    "assembly/"
   ],
   "publish": {
     "include": [
