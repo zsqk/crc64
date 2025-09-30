@@ -88,15 +88,11 @@ const exportObj = await (async (url: URL) =>
       console.log('url', typeof url, url);
       const isDeno: boolean =
         typeof Deno != "undefined";
-      if (isDeno) {
-        console.log("Using Deno to load WASM");
-        return await WebAssembly.compile(await Deno.readFile(url));
-      }
       const isNodeOrBun: boolean =
         typeof process != "undefined" &&
         process.versions != null &&
         (process.versions.node != null || process.versions.bun != null);
-      if (isNodeOrBun) {
+      if (isNodeOrBun && !isDeno) {
         console.log("Using node:fs to load WASM");
         const fileData = await (await import("node:fs/promises")).readFile(url);
         return globalThis.WebAssembly.compile(new Uint8Array(fileData).buffer);
