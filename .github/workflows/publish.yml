@@ -45,4 +45,6 @@ jobs:
           git push origin ${{ steps.version.outputs.version }}
 
       - name: Run publish
-        run: deno publish
+        run: |
+          deno task asbuild:release
+          deno publish
