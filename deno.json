@@ -3,8 +3,7 @@
   "version": "0.1.11",
   "license": "MIT",
   "exports": {
-    "./js": "./build/release.js",
-    "./ts": "./build/release.ts"
+    ".": "./build/release.js"
   },
   "tasks": {
     "asbuild:debug": "asc assembly/crc64.ts --target debug",
