@@ -82,7 +82,7 @@ async function instantiate(module: WebAssembly.Module, imports: ImportObject = {
   return adaptedExports;
 }
 
-export const { memory, crc64 } = await (async (url: URL): Promise<AdaptedExports> =>
+const exportObj = await (async (url: URL) =>
   instantiate(
     await (async (): Promise<WebAssembly.Module> => {
       console.log('url', typeof url, url);
@@ -109,3 +109,6 @@ export const { memory, crc64 } = await (async (url: URL): Promise<AdaptedExports
     })(),
     {}
   ))(new URL("release.wasm", import.meta.url));
+
+export const memory: WebAssembly.Memory = exportObj.memory;
+export const crc64: (buf: ArrayBuffer | null) => string = exportObj.crc64;
