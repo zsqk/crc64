@@ -1,4 +1,4 @@
-import { crc64 } from "@zsqk/crc64/ts";
+import { crc64 } from "@zsqk/crc64";
 
 // Learn more at https://docs.deno.com/runtime/manual/examples/module_metadata#concepts
 if (import.meta.main) {
