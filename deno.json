@@ -2,7 +2,10 @@
   "name": "@zsqk/crc64",
   "version": "0.1.3",
   "license": "MIT",
-  "exports": "./build/release.js",
+  "exports": {
+    "./js": "./build/release.js",
+    "./wasm": "./build/release.wasm"
+  },
   "tasks": {
     "asbuild:debug": "asc assembly/crc64.ts --target debug",
     "asbuild:release": "asc assembly/crc64.ts --target release",
