@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1",
+    "@zsqk/crc64": "jsr:@zsqk/crc64@^0.1.8"
+  }
+}
