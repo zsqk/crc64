@@ -1,0 +1,15 @@
+{
+  "name": "runtime_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@zsqk/crc64": "npm:@jsr/zsqk__crc64@^0.1.8"
+  }
+}
