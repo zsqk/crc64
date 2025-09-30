@@ -82,7 +82,7 @@ async function instantiate(module: WebAssembly.Module, imports: ImportObject = {
   return adaptedExports;
 }
 
-export const { memory, crc64 } = await (async (url: URL) =>
+export const { memory, crc64 } = await (async (url: URL): Promise<AdaptedExports> =>
   instantiate(
     await (async (): Promise<WebAssembly.Module> => {
       console.log('url', typeof url, url);
