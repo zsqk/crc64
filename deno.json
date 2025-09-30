@@ -1,6 +1,6 @@
 {
   "name": "@zsqk/crc64",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "license": "MIT",
   "exports": {
     "./js": "./build/release.js",
