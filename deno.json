@@ -9,6 +9,10 @@
     "asbuild": "deno task asbuild:debug && deno task asbuild:release",
     "test": "deno task asbuild && deno test -A"
   },
+  "exclude": [
+    "assembly/",
+    "build/"
+  ],
   "publish": {
     "include": [
       "build/",
