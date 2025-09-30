@@ -9,7 +9,7 @@
     "asbuild:debug": "asc assembly/crc64.ts --target debug",
     "asbuild:release": "asc assembly/crc64.ts --target release",
     "asbuild": "deno task asbuild:debug && deno task asbuild:release",
-    "test": "deno task asbuild && deno test -A"
+    "test": "deno test -A"
   },
   "exclude": [
     "assembly/"
