@@ -85,19 +85,24 @@ async function instantiate(module: WebAssembly.Module, imports: ImportObject = {
 const exportObj = await (async (url: URL) =>
   instantiate(
     await (async (): Promise<WebAssembly.Module> => {
-      console.log('url', typeof url, url);
       const isDeno: boolean =
         typeof Deno != "undefined";
       const isNodeOrBun: boolean =
         typeof process != "undefined" &&
         process.versions != null &&
         (process.versions.node != null || process.versions.bun != null);
+      if (isDeno) {
+        const url = new URL("release.wasm", import.meta.url)
+        console.log("Using Deno to load WASM", url);
+        const fileData = await Deno.readFile(url);
+        return globalThis.WebAssembly.compile(new Uint8Array(fileData).buffer);
+      }
       if (isNodeOrBun && !isDeno) {
-        console.log("Using node:fs to load WASM");
+        console.log("Using node:fs to load WASM", url);
         const fileData = await (await import("node:fs/promises")).readFile(url);
         return globalThis.WebAssembly.compile(new Uint8Array(fileData).buffer);
       } else {
-        console.log("Using fetch to load WASM");
+        console.log("Using fetch to load WASM", url);
         return await globalThis.WebAssembly.compileStreaming(
           globalThis.fetch(url)
         );

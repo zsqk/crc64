@@ -1,0 +1,16 @@
+{
+  "version": "5",
+  "specifiers": {
+    "jsr:@zsqk/crc64@~0.1.8": "0.1.8"
+  },
+  "jsr": {
+    "@zsqk/crc64@0.1.8": {
+      "integrity": "3049b1c84a095982cac30b58fdfc11e3e2119cfde31ed979e80e0c0d03aaed92"
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@zsqk/crc64@~0.1.8"
+    ]
+  }
+}
