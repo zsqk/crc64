@@ -1,6 +1,6 @@
 {
   "name": "@zsqk/crc64",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "license": "MIT",
   "exports": {
     ".": "./src/main.ts"
@@ -17,6 +17,7 @@
   "publish": {
     "include": [
       "build/",
+      "src/",
       "README.md",
       "LICENSE",
       "deno.json"
