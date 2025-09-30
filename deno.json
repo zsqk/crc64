@@ -1,14 +1,13 @@
 {
   "name": "@zsqk/crc64",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "exports": "./build/release.js",
   "tasks": {
     "asbuild:debug": "asc assembly/crc64.ts --target debug",
     "asbuild:release": "asc assembly/crc64.ts --target release",
     "asbuild": "deno task asbuild:debug && deno task asbuild:release",
-    "test": "deno task asbuild && deno test -A",
-    "prepublish": "deno task asbuild"
+    "test": "deno task asbuild && deno test -A"
   },
   "publish": {
     "include": [
