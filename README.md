@@ -10,6 +10,6 @@ Automatically build and publish concurrent versions via jsr.io and GitHub Action
 ## Usage
 
 ```ts
-const { crc64 } = await import('@zsqk/crc64/ts');
+const { crc64 } = await import('@zsqk/crc64');
 const hash = crc64(new TextEncoder().encode('Hello, world!\n').buffer);
 ```
