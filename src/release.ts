@@ -111,9 +111,7 @@ const exportObj = await (async (url: URL) =>
         (process.versions.node != null || process.versions.bun != null);
       if (isDeno) {
         console.log("Using embedder to load WASM");
-        const { get } = await import("../embed/static/dir.ts").then((m) =>
-          m.default
-        );
+        const { get } = await import("../embed/static/dir.ts");
         const res = await get("release.wasm");
         if (!res) {
           throw new Error("Failed to load release.wasm from embedder");
