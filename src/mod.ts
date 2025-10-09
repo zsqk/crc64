@@ -26,6 +26,14 @@ interface AdaptedExports {
   memory: WebAssembly.Memory;
 }
 
+/**
+ * 啰嗦模式
+ */
+let verbose = false;
+export function setVerbose(v: boolean) {
+  verbose = v;
+}
+
 async function instantiate(
   module: WebAssembly.Module,
   imports: ImportObject = {},
@@ -110,17 +118,17 @@ const exportObj = await (async (url: URL) =>
         process.versions != null &&
         (process.versions.node != null || process.versions.bun != null);
       if (isDeno) {
-        console.log("Using embedder to load WASM");
+        if (verbose) console.log("Using embedder to load WASM");
         const { get } = await import("../embed/static/dir.ts");
         const res = await get("release.wasm");
         return globalThis.WebAssembly.compileStreaming(res);
       }
       if (isNodeOrBun) {
-        console.log("Using node:fs to load WASM", url);
+        if (verbose) console.log("Using node:fs to load WASM", url);
         const fileData = await (await import("node:fs/promises")).readFile(url);
         return globalThis.WebAssembly.compile(new Uint8Array(fileData).buffer);
       } else {
-        console.log("Using fetch to load WASM", url);
+        if (verbose) console.log("Using fetch to load WASM", url);
         return await globalThis.WebAssembly.compileStreaming(
           globalThis.fetch(url),
         );
@@ -131,3 +139,5 @@ const exportObj = await (async (url: URL) =>
 
 export const memory: WebAssembly.Memory = exportObj.memory;
 export const crc64: (buf: ArrayBuffer | null) => string = exportObj.crc64;
+
+

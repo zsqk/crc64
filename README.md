@@ -1,6 +1,6 @@
 # crc64
 
-CRC64 ECMA-182 WASM for Deno and Browser.
+CRC64 ECMA-182 WASM for Deno and Node.js (Browser).
 
 - use AssemblyScript.
 - use Deno runtime.
