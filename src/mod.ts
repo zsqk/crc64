@@ -23,7 +23,7 @@ interface WasmExports {
 }
 
 interface AdaptedExports {
-  crc64(buf: ArrayBuffer | null): string;
+  crc64(buf: ArrayBuffer | Uint8Array): string;
   memory: WebAssembly.Memory;
 }
 
@@ -141,4 +141,4 @@ export const memory: WebAssembly.Memory = exportObj.memory;
  * @param buf The input ArrayBuffer. If null, it is treated as an empty buffer.
  * @returns The CRC64 checksum as a string representing an unsigned 64-bit integer.
  */
-export const crc64: (buf: ArrayBuffer | null) => string = exportObj.crc64;
+export const crc64: (buf: ArrayBuffer | Uint8Array) => string = exportObj.crc64;
