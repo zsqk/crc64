@@ -1,30 +1,23 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@std/internal@^1.0.10": "1.0.10",
-    "jsr:@std/path@^1.1.2": "1.1.2",
-    "jsr:@zsqk/crc64@~0.1.12": "0.1.12"
+    "jsr:@std/encoding@^1.0.10": "1.0.10",
+    "jsr:@zsqk/crc64@~0.3.1": "0.3.1"
   },
   "jsr": {
-    "@std/internal@1.0.10": {
-      "integrity": "e3be62ce42cab0e177c27698e5d9800122f67b766a0bea6ca4867886cbde8cf7"
+    "@std/encoding@1.0.10": {
+      "integrity": "8783c6384a2d13abd5e9e87a7ae0520a30e9f56aeeaa3bdf910a3eaaf5c811a1"
     },
-    "@std/path@1.1.2": {
-      "integrity": "c0b13b97dfe06546d5e16bf3966b1cadf92e1cc83e56ba5476ad8b498d9e3038",
+    "@zsqk/crc64@0.3.1": {
+      "integrity": "f75a814bf121a0a7bfdd3142813a58b6df045338e485d11591c2432c824900c5",
       "dependencies": [
-        "jsr:@std/internal"
-      ]
-    },
-    "@zsqk/crc64@0.1.12": {
-      "integrity": "b42855b53286826bc90146d45cb875863239b2f8469adbf82d97b7c0a6d7ae9a",
-      "dependencies": [
-        "jsr:@std/path"
+        "jsr:@std/encoding"
       ]
     }
   },
   "workspace": {
     "dependencies": [
-      "jsr:@zsqk/crc64@~0.1.12"
+      "jsr:@zsqk/crc64@~0.3.1"
     ]
   }
 }
