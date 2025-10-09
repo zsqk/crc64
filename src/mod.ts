@@ -1,5 +1,7 @@
 // deno-lint-ignore-file no-process-global
 
+import { verbose } from "./config.ts";
+
 interface ImportObject {
   env?: Record<string, WebAssembly.ExportValue>;
 }
@@ -24,14 +26,6 @@ interface WasmExports {
 interface AdaptedExports {
   crc64(buf: ArrayBuffer | null): string;
   memory: WebAssembly.Memory;
-}
-
-/**
- * 啰嗦模式
- */
-let verbose = false;
-export function setVerbose(v: boolean) {
-  verbose = v;
 }
 
 async function instantiate(
