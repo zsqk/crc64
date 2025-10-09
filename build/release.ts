@@ -1,5 +1,4 @@
 // deno-lint-ignore-file no-process-global
-import { resolve } from "@std/path/resolve";
 
 interface ImportObject {
   env?: Record<string, WebAssembly.ExportValue>;
@@ -94,11 +93,9 @@ const exportObj = await (async (url: URL) =>
         process.versions != null &&
         (process.versions.node != null || process.versions.bun != null);
       if (isDeno) {
-        console.log('import.meta.url', import.meta.url);
-        const path = resolve(import.meta.url, 'release.wasm');
-        console.log("Using Deno to load WASM", path);
-        const fileData = await Deno.readFile(path);
-        return globalThis.WebAssembly.compile(new Uint8Array(fileData).buffer);
+        console.log("Using Deno to load WASM", url);
+        const fileData = await Deno.readFile(url);
+        return globalThis.WebAssembly.compile(fileData);
       }
       if (isNodeOrBun && !isDeno) {
         console.log("Using node:fs to load WASM", url);
