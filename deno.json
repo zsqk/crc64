@@ -1,9 +1,9 @@
 {
   "name": "@zsqk/crc64",
-  "version": "0.1.13",
+  "version": "0.3.0",
   "license": "MIT",
   "exports": {
-    ".": "./build/release.ts"
+    ".": "./src/mod.ts"
   },
   "tasks": {
     "asbuild:debug": "asc assembly/crc64.ts --target debug",
@@ -17,7 +17,7 @@
   ],
   "publish": {
     "include": [
-      "build/",
+      "src/",
       "README.md",
       "LICENSE",
       "deno.json"
