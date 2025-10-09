@@ -116,9 +116,7 @@ const exportObj = await (async (url: URL) =>
         if (!res) {
           throw new Error("Failed to load release.wasm from embedder");
         }
-        return globalThis.WebAssembly.compile(
-          await res.bytes() as Uint8Array<ArrayBuffer>,
-        );
+        return globalThis.WebAssembly.compileStreaming(res);
       }
       if (isNodeOrBun && !isDeno) {
         console.log("Using node:fs to load WASM", url);
