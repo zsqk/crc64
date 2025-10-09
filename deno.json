@@ -1,10 +1,9 @@
 {
   "name": "@zsqk/crc64",
-  "version": "0.1.10",
+  "version": "0.1.12",
   "license": "MIT",
   "exports": {
-    "./js": "./build/release.js",
-    "./ts": "./build/release.ts"
+    ".": "./build/release.ts"
   },
   "tasks": {
     "asbuild:debug": "asc assembly/crc64.ts --target debug",
@@ -26,6 +25,7 @@
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@^1.0.14",
+    "@std/path": "jsr:@std/path@^1.1.2",
     "assemblyscript": "npm:assemblyscript@^0.28.8"
   }
 }
