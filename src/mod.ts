@@ -131,7 +131,15 @@ const exportObj = await (async (url: URL) =>
     {},
   ))(new URL("release.wasm", import.meta.url));
 
+/**
+ * The WebAssembly.Memory instance used by the module.
+ * This is only available after the module has been instantiated.
+ */
 export const memory: WebAssembly.Memory = exportObj.memory;
+
+/**
+ * Calculate the CRC64 checksum of an ArrayBuffer.
+ * @param buf The input ArrayBuffer. If null, it is treated as an empty buffer.
+ * @returns The CRC64 checksum as a string representing an unsigned 64-bit integer.
+ */
 export const crc64: (buf: ArrayBuffer | null) => string = exportObj.crc64;
-
-
