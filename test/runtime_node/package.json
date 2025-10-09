@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@zsqk/crc64": "npm:@jsr/zsqk__crc64@^0.1.8"
+    "@zsqk/crc64": "npm:@jsr/zsqk__crc64@^0.3.1"
   }
 }
