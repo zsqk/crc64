@@ -113,12 +113,9 @@ const exportObj = await (async (url: URL) =>
         console.log("Using embedder to load WASM");
         const { get } = await import("../embed/static/dir.ts");
         const res = await get("release.wasm");
-        if (!res) {
-          throw new Error("Failed to load release.wasm from embedder");
-        }
         return globalThis.WebAssembly.compileStreaming(res);
       }
-      if (isNodeOrBun && !isDeno) {
+      if (isNodeOrBun) {
         console.log("Using node:fs to load WASM", url);
         const fileData = await (await import("node:fs/promises")).readFile(url);
         return globalThis.WebAssembly.compile(new Uint8Array(fileData).buffer);
