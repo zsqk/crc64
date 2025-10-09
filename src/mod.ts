@@ -1,6 +1,5 @@
-// deno-lint-ignore-file no-process-global
-
 import { verbose } from "./config.ts";
+import process from "node:process";
 
 interface ImportObject {
   env?: Record<string, WebAssembly.ExportValue>;
