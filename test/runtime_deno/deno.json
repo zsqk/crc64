@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@zsqk/crc64": "jsr:@zsqk/crc64@^0.1.11"
+    "@zsqk/crc64": "jsr:@zsqk/crc64@^0.1.12"
   }
 }
