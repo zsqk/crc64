@@ -18,6 +18,7 @@
   "publish": {
     "include": [
       "src/",
+      "embed/static/",
       "README.md",
       "LICENSE",
       "deno.json"
